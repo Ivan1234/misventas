@@ -66,8 +66,7 @@
     </div>   
 
     <footer class="app-footer">
-        <span><a href="http://www.webtraining-it.com/">webtraining-it.com</a> &copy; 2019</span>
-        <span class="ml-auto">Desarrollado por <a href="http://www.webtraining-it.com/">webtraining-it.com</a></span>
+        <span>Todos los derechos reservados &copy; 2019</span>
     </footer>
 
     <!-- Bootstrap and necessary plugins -->
@@ -97,6 +96,7 @@
         modal.find('.modal-body #descripcion').val(descripcion_modal_editar);
         modal.find('.modal-body #id_categoria').val(id_categoria);
         })
+        /*Fin de editar categoria en ventana modal*/
     
         /*
         *Inicio ventana modal para cambiar estado de categoría
@@ -109,6 +109,47 @@
 
             modal.find('.modal-body #id_categoria').val(id_categoria);
         })
+        /*Fin de ventana modal para cambiar estado de categoría*/
+
+        /*
+        *EDITAR producto en ventana modal
+        *
+        */
+        $('#abrirmodalEditar').on('show.bs.modal', function(event){
+            /*El button.data es lo que está en el button editar*/
+            var button = $(event.relatedTarget);
+            /*Este id_categoria_modal_editar selecciona la categoria*/
+            var id_categoria_modal_editar = button.data('id_categoria');
+            var nombre_modal_editar = button.data('nombre');
+            var precio_venta_modal_editar = button.data('precio_venta');
+            var codigo_modal_editar = button.data('codigo');
+            var stock_modal_editar = button.data('stock');
+            var id_producto = button.data('id_producto');
+
+            var modal = $(this);
+            modal.find('.modal-body #id').val(id_categoria_modal_editar);
+            modal.find('.modal-body #nombre').val(nombre_modal_editar);
+            modal.find('.modal-body #precio_venta').val(precio_venta_modal_editar);
+            modal.find('.modal-body #codigo').val(codigo_modal_editar);
+            modal.find('.modal-body #stock').val(stock_modal_editar);
+            modal.find('.modal-body #id_producto').val(id_producto);
+
+        });
+        /*Fin de EDITAR PRODUCTO EN VENTANA MODAL*/
+
+        /*
+        *Inicio de la ventana modal para la activación/desactivación del producto 
+        *
+        */
+        $('#cambiarEstado').on('show.bs.modal', function(event){
+            var button = $(event.relatedTarget);
+
+            var id_producto_modal_eliminar = button.data('id_producto');
+
+            var modal = $(this);
+            modal.find('.modal-body #id_producto').val(id_producto_modal_eliminar);
+        });
+        /*Fin de ACTIVAR/DESACTIVAR PRODUCTO EN VENTANA MODAL*/
     
     </script>
 
