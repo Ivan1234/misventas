@@ -174,6 +174,30 @@
         });
 
         /*FIN DE EDITAR PROVEEDOR EN VENTANA MODAL*/
+
+         /*EDITAR CLIENTE EN VENTANA MODAL*/
+        $('#abrirmodalEditar').on('show.bs.modal', function(event){
+            var button = $(event.relatedTarget);
+
+            var id_cliente_editar = button.data('id_cliente');
+            var nombre_editar = button.data('nombre');
+            var tipo_documento_editar = button.data('tipo_documento');
+            var num_documento_editar = button.data('num_documento');
+            var telefono_editar = button.data('telefono');
+            var email_editar = button.data('email');
+            var direccion_editar = button.data('direccion');
+
+            var modal = $(this);
+            modal.find('.modal-body #id_cliente').val(id_cliente_editar);
+            modal.find('.modal-body #nombre').val(nombre_editar);
+            modal.find('.modal-body #direccion').val(direccion_editar);
+            modal.find('.modal-body #tipo_documento').val(tipo_documento_editar);
+            modal.find('.modal-body #num_documento').val(num_documento_editar);
+            modal.find('.modal-body #telefono').val(telefono_editar);
+            modal.find('.modal-body #email').val(email_editar);
+        });
+
+        /*FIN DE EDITAR CLIENTE EN VENTANA MODAL*/
     
     </script>
 
