@@ -20,3 +20,5 @@ Route::resource('producto', 'ProductController');
 Route::resource('proveedor', 'ProviderController');
 Route::resource('cliente', 'CustomerController');
 Route::resource('rol', 'RolController');
+Route::resource('user', 'UserController');
+

@@ -58,8 +58,8 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="{{url('usuarios')}}" onclick="event.preventDefault(); document.getElementById('usuarios-form').submit();"><i class="fa fa-list"></i> Usuarios</a>
-                <form id="usuarios-form" action="{{url('usuarios')}}" method="get" style="display:none;">
+                <a class="nav-link" href="{{url('user')}}" onclick="event.preventDefault(); document.getElementById('usuarios-form').submit();"><i class="fa fa-list"></i> Usuarios</a>
+                <form id="usuarios-form" action="{{url('user')}}" method="get" style="display:none;">
                     {{csrf_field()}}
                 </form>
             </li>
