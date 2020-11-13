@@ -11,14 +11,39 @@
 |
 */
 
-Route::get('/', function () {
-    return view('principal');
+Route::group(['middleware' => ['guest']], function(){
+	Route::get('/', 'Auth\LoginController@showLoginForm')->name('index');
+	Route::post('/login', 'Auth\LoginController@login')->name('login');
 });
 
-Route::resource('categoria', 'CategoriaController');
-Route::resource('producto', 'ProductController');
-Route::resource('proveedor', 'ProviderController');
-Route::resource('cliente', 'CustomerController');
-Route::resource('rol', 'RolController');
-Route::resource('user', 'UserController');
+Route::group(['middleware' => ['auth']], function(){
+	Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+	Route::get('/home', 'HomeController@index')->name('home');
+
+	Route::group(['middleware' => ['Comprador']], function(){
+		Route::resource('categoria', 'CategoriaController');
+		Route::resource('producto', 'ProductController');
+		Route::resource('proveedor', 'ProviderController');
+	});
+
+	Route::group(['middleware' => ['Vendedor']], function(){
+		Route::resource('categoria', 'CategoriaController');
+		Route::resource('producto', 'ProductController');
+		Route::resource('cliente', 'CustomerController');
+	});
+
+	Route::group(['middleware' => ['Administrador']], function(){
+		Route::resource('categoria', 'CategoriaController');
+		Route::resource('producto', 'ProductController');
+		Route::resource('proveedor', 'ProviderController');
+		Route::resource('cliente', 'CustomerController');
+		Route::resource('rol', 'RolController');
+		Route::resource('user', 'UserController');
+	});
+
+});
+
+
+
 
