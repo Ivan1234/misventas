@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth']], function(){
 		Route::resource('categoria', 'CategoriaController');
 		Route::resource('producto', 'ProductController');
 		Route::resource('proveedor', 'ProviderController');
+		Route::resource('compra', 'CompraController');
+		Route::get('pdfCompra/{id}', 'CompraController@pdf')->name('compra_pdf');
 	});
 
 	Route::group(['middleware' => ['Vendedor']], function(){
@@ -37,9 +39,11 @@ Route::group(['middleware' => ['auth']], function(){
 		Route::resource('categoria', 'CategoriaController');
 		Route::resource('producto', 'ProductController');
 		Route::resource('proveedor', 'ProviderController');
+		Route::resource('compra', 'CompraController');
 		Route::resource('cliente', 'CustomerController');
 		Route::resource('rol', 'RolController');
 		Route::resource('user', 'UserController');
+		Route::get('pdfCompra/{id}', 'CompraController@pdf')->name('compra_pdf');
 	});
 
 });

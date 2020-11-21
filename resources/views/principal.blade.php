@@ -79,6 +79,7 @@
 
     <!-- Bootstrap and necessary plugins -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
+    @stack('scripts')
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/pace.min.js')}}"></script>
@@ -247,6 +248,17 @@
         });
 
         /*FIN DE CAMBIAR ESTADO DE USUARIO EN VENTANA MODAL*/
+
+        /*INICIO DE CAMBIO DE ESTADO DE LA COMPRA EN VENTANA MODAL*/
+        $('#cambiarEstadoCompra').on('show.bs.modal', function(event){
+            var button = $(event.relatedTarget);
+
+            var id_cambiar_estado_model = button.data('id_compra');
+            var modal = $(this);
+
+            modal.find('.modal-body #id_compra').val(id_cambiar_estado_model);
+        });
+        /*FIN DE CAMBIO DE ESTADO DE LA COMPRA EN VENTANA MODAL*/
     
     </script>
 
