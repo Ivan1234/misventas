@@ -259,10 +259,18 @@
             modal.find('.modal-body #id_compra').val(id_cambiar_estado_model);
         });
         /*FIN DE CAMBIO DE ESTADO DE LA COMPRA EN VENTANA MODAL*/
+
+        /*INICIO DE CAMBIO DE ESTADO DE LA VENTA EN VENTANA MODAL*/
+        $('#cambiarEstadoVenta').on('show.bs.modal', function(event){
+            var button = $(event.relatedTarget);
+
+            var id_cambiar_estado_model = button.data('id_venta');
+            var modal = $(this);
+            modal.find('.modal-body #id_venta').val(id_cambiar_estado_model);
+        });
+        /*FIN DE CAMBIO DE ESTADO DE LA VENTA EN VENTANA MODAL*/
     
     </script>
-
-
 </body>
 
 </html>
